@@ -4,15 +4,21 @@ This Role used to configure the Kubernetes Worker Node on the AWS Linux 2 with t
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- boto3 Library is required to contact to the AWS
 
 ## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+**If you are using this role without the Dependence `ayushrawat_17.k8s_aws_master` then updates this Variables**
+  - **hostvar_token_present** &nbsp; Change value to *no*
+  - **kube_join_token** &nbsp; Put your Kubernetes Join Token
+  - **ca_cert_hash** &nbsp; Put your Kubernetes Join CA certificate hash
+  - **master_ip** &nbsp; Provide the Master Node IP
+  - **master_portno** &nbsp; Provide the Master node Port number
 
 ## Dependencies
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- `ayushrawat_17.k8s_aws_ec2` Role is required for Provisioning of Desired Infrastructure
+- `ayushrawat_17.k8s_aws_master` Role is required for configuring Master for this Worker Node
 
 **Example Playbook**
 ----------------
@@ -21,7 +27,7 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 ---
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: ayushrawat_17.k8s_aws_slave
 ```
 
 ## License
