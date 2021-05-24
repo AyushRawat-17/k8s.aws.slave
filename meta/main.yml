@@ -13,6 +13,6 @@ galaxy_info:
 
   galaxy_tags: [ 'kubernetes', 'aws', 'kubernetesWorker' ]
     
-dependencies: 
-    - role: ayushrawat_17.k8s_aws_ec2
-    - role: ayushrawat_17.k8s_aws_master
+# dependencies: 
+#     - role: ayushrawat_17.k8s_aws_ec2
+#     - role: ayushrawat_17.k8s_aws_master
